@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BLRX Runner</string>
+    <!-- Only notification / error messages live in Java resources. -->
+    <string name="err_assets">Some game images are missing. Place them in assets/gfx</string>
+</resources>
