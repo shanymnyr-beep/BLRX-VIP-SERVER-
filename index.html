@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Urban Runner</title>
+  <meta name="theme-color" content="#5f3cff" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div class="hud-top">
+      <div class="pill pill-gold"><span class="icon">👑</span><span id="coinsValue">105,432</span></div>
+      <div class="pill pill-ruby"><span class="icon">💎</span><span id="gemsValue">1,450</span></div>
+    </div>
+
+    <main class="screen-wrap">
+      <section id="menuScreen" class="screen active">
+        <div class="title-lockup">
+          <div class="eyebrow">arcade rush</div>
+          <h1>Urban Runner</h1>
+        </div>
+
+        <div class="hero-card">
+          <div class="mini-runner mini-runner-left"></div>
+          <button id="playBtn" class="cta cta-play">Play</button>
+          <div class="mini-runner mini-runner-right"></div>
+        </div>
+
+        <div class="menu-stack">
+          <button class="menu-btn" data-screen="shopScreen">Shop Characters</button>
+          <button class="menu-btn" data-screen="skillsScreen">Skills Upgrades</button>
+          <button class="menu-btn" data-screen="settingsScreen">Settings</button>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div class="in-game-hud">
+          <div class="pill pill-gold"><span class="icon">👑</span><span id="runCoins">0</span></div>
+          <div class="hearts" id="livesBar"></div>
+          <div class="pill pill-ruby"><span class="icon">💎</span><span id="runGems">0</span></div>
+        </div>
+        <canvas id="gameCanvas" width="420" height="860" aria-label="Urban Runner game canvas"></canvas>
+        <div class="touch-controls">
+          <button class="touch-btn left" data-action="left">◀</button>
+          <button class="touch-btn up" data-action="jump">▲</button>
+          <button class="touch-btn right" data-action="right">▶</button>
+          <button class="touch-btn down" data-action="slide">▼</button>
+        </div>
+        <button class="pause-btn" id="pauseBtn">⏸</button>
+      </section>
+
+      <section id="shopScreen" class="screen panel-screen">
+        <div class="panel-header">
+          <button class="nav-back" data-screen="menuScreen">Back</button>
+          <h2>Character Shop</h2>
+        </div>
+        <div id="characterGrid" class="character-grid"></div>
+        <button class="home-btn" data-screen="menuScreen">Home</button>
+      </section>
+
+      <section id="skillsScreen" class="screen panel-screen">
+        <div class="panel-header">
+          <button class="nav-back" data-screen="menuScreen">Back</button>
+          <h2>Skills Upgrades</h2>
+        </div>
+        <div id="skillsList" class="skills-list"></div>
+      </section>
+
+      <section id="settingsScreen" class="screen panel-screen">
+        <div class="panel-header">
+          <button class="nav-back" data-screen="menuScreen">Back</button>
+          <h2>Settings</h2>
+        </div>
+        <div class="settings-list">
+          <button id="toggleSound" class="menu-btn small">Sound: On</button>
+          <button id="resetProgress" class="menu-btn small danger">Reset Progress</button>
+        </div>
+      </section>
+
+      <section id="gameOverScreen" class="screen overlay-screen">
+        <div class="results-card">
+          <h2>Game Over!</h2>
+          <div class="result-row"><span>Final Score</span><strong id="finalScore">0</strong></div>
+          <div class="result-row"><span>Coins Collected</span><strong id="finalCoins">0</strong></div>
+          <div class="result-row"><span>Best Score</span><strong id="bestScore">0</strong></div>
+          <div class="results-actions">
+            <button id="retryBtn" class="cta success">Retry</button>
+            <button class="cta secondary" data-screen="menuScreen">Home</button>
+            <button id="continueBtn" class="cta ruby">Continue (50 Gems)</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
